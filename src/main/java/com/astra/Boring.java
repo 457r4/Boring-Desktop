@@ -1,6 +1,6 @@
 package com.astra;
 
-public class App {
+public class Boring {
   public static void main(String[] args) {
     System.out.println("Hello World!");
   }
