@@ -3,13 +3,9 @@ package com.astra.util;
 /**
  * Background colors for console prints
  */
-public enum Background {
-  WHITE("\u001b[47m"),
-  RESET("\u001b[0m");
+public class Background {
 
-  public final String code;
-
-  private Background(String code) {
-    this.code = code;
-  }
+  public static final String WHITE = "\u001b[47m";
+  public static final String RESET = "\u001b[0m";
 }
+

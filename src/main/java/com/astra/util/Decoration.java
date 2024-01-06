@@ -3,15 +3,11 @@ package com.astra.util;
 /**
  * Decorations for console prints
  */
-public enum Decoration {
-  BOLD("\u001b[1m"),
-  UNDERLINE("\u001b[4m"),
-  REVERSED("\u001b[7m"),
-  RESET("\u001b[0m");
+public class Decoration {
 
-  public final String code;
-
-  private Decoration(String code) {
-    this.code = code;
-  }
+  public static final String BOLD = "\u001b[1m";
+  public static final String UNDERLINE = "\u001b[4m";
+  public static final String REVERSED = "\u001b[7m";
+  public static final String RESET = "\u001b[0m";
 }
+
