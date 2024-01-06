@@ -32,7 +32,7 @@ public class Boring {
     Option macOption = new Option("m", "mac", true, "MAC Address");
     Option ipOption = new Option("ip", "ip-address", true, "Provide the Host Ip Address to be used within this instance");
     Option remotePortOption = new Option("rp", "remote-port", true, "Remote port");
-    Option localPortOption = new Option("lc", "local-port", true, "Local port");
+    Option localPortOption = new Option("lp", "local-port", true, "Local port");
     Option helpOption = new Option("h", "help", false, "Print this message");
 
     options.addOption(connectOption);
@@ -55,8 +55,8 @@ public class Boring {
 
       String MAC_ADDRESS = cmd.getOptionValue("mac");
       String IP_ADDRESS = cmd.getOptionValue("ip-address");
-      String REMOTE_PORT = cmd.getOptionValue("remote-port", DEFAULT_REMOTE_PORT.toString());
-      String LOCAL_PORT = cmd.getOptionValue("local-port", DEFAULT_REMOTE_PORT.toString());
+      String REMOTE_PORT = cmd.getOptionValue("remote-port");
+      String LOCAL_PORT = cmd.getOptionValue("local-port");
 
       if (MAC_ADDRESS != null)
         ConfigManager.setMAC_ADDRESS(MAC_ADDRESS);
