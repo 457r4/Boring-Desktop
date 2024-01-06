@@ -27,12 +27,9 @@ public class Boring {
 
     Options options = new Options();
 
-    Option connectOption = new Option(
-        "c", "connect", false, "Attempt connection with local configuration");
+    Option connectOption = new Option("c", "connect", false, "Attempt connection with local configuration");
     Option macOption = new Option("m", "mac", true, "MAC Address");
-    Option ipOption = new Option(
-        "ip", "ip-address", true,
-        "Provide the Host Ip Address to be used within this instance");
+    Option ipOption = new Option("ip", "ip-address", true, "Provide the Host Ip Address to be used within this instance");
     Option remotePortOption = new Option("rp", "remote-port", true, "Remote port");
     Option localPortOption = new Option("lp", "local-port", true, "Local port");
     Option helpOption = new Option("h", "help", false, "Print this message");
