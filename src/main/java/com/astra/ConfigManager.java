@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.Properties;
 
+import com.astra.exceptions.MissingConfigurationException;
 import com.astra.util.Background;
 import com.astra.util.Colors;
 
@@ -34,8 +35,10 @@ public class ConfigManager {
     return HOST;
   }
 
-  public static String getHost() {
+  public static String getHost() throws MissingConfigurationException {
     String MAC_ADDRESS = getMAC_ADDRESS();
+    if (MAC_ADDRESS == null)
+      throw new MissingConfigurationException();
     System.out.println(Background.WHITE + Colors.BLACK +
         "MAC_ADDRESS: " + MAC_ADDRESS + Background.RESET);
     return findHost(MAC_ADDRESS);

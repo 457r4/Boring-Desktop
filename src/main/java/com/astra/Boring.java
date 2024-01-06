@@ -30,7 +30,9 @@ public class Boring {
     Option connectOption = new Option(
         "c", "connect", false, "Attempt connection with local configuration");
     Option macOption = new Option("m", "mac", true, "MAC Address");
-    Option ipOption = new Option("ip", "ip-address", true, "Provide the Host Ip Address to be used within this instance");
+    Option ipOption = new Option(
+        "ip", "ip-address", true,
+        "Provide the Host Ip Address to be used within this instance");
     Option remotePortOption = new Option("rp", "remote-port", true, "Remote port");
     Option localPortOption = new Option("lp", "local-port", true, "Local port");
     Option helpOption = new Option("h", "help", false, "Print this message");
@@ -76,9 +78,14 @@ public class Boring {
           client.setHOST(ConfigManager.getHost());
         } catch (MissingConfigurationException e) {
           System.out.println(
-              "No address has been setup, add one with the command -m --mac or add a temporary\nIp as an argument to the -c --connect option");
+              "No MAC address configured. You can set a MAC Address using the -m --mac option.");
           return;
-        } 
+        } catch (NullPointerException e) {
+          System.out.println(
+              "Host not found. You can try the connection again or provide a fixed IP\n"
+              + "using the -ip --ip-address option; the latter won't be saved.");
+          return;
+        }
       }
 
       if (cmd.hasOption("connect")) {

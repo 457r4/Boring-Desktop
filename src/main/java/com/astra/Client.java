@@ -50,9 +50,9 @@ public class Client {
     return HOST;
   }
 
-  public void setHOST(String HOST) throws MissingConfigurationException {
+  public void setHOST(String HOST) throws NullPointerException {
     if (HOST == null)
-      throw new MissingConfigurationException("Host address provided is null");
+      throw new NullPointerException();
     this.HOST = HOST;
     System.out.println(Background.WHITE + Colors.BLACK +
         "HOST IP ADDRESS: " + HOST + Background.RESET);
