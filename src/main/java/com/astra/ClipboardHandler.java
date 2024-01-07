@@ -17,8 +17,8 @@ public class ClipboardHandler implements Runnable {
   private static final Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
   private static final ClipboardEventsManager clipboardEventsManager = new ClipboardEventsManager();
   private static final ClipboardOwner clipboardOwner = (arg0, arg1) -> {
-    Package data = ClipboardMarshaller.marshal(clipboard.getContents(null));
-    ClipboardHandler.client.send(data);
+    Packet packet = ClipboardMarshaller.marshal(clipboard.getContents(null));
+    ClipboardHandler.client.send(packet);
     clipboardEventsManager.notifyContentAvailable();
   };
   private static Client client;

@@ -28,14 +28,14 @@ public class Client {
     this.REMOTE_PORT = REMOTE_PORT;
   }
 
-  public void send(Package data) {
+  public void send(Packet packet) {
     boolean sent = false;
     for (int i = 0; i < 5 && !sent; i++) {
       try {
         Socket socket = new Socket(HOST, REMOTE_PORT);
         System.out.println("HOST: " + HOST + " PORT: " + REMOTE_PORT);
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
-        oos.writeObject(data);
+        oos.writeObject(packet);
         socket.close();
         sent = true;
         System.out.println("sent: " + sent);

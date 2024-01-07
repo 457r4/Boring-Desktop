@@ -31,8 +31,8 @@ public class Server implements Runnable {
           ServerSocket serverSocket = new ServerSocket(LOCAL_PORT);
           Socket socket = serverSocket.accept();
           ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
-          Package inPackage = (Package) inputStream.readObject();
-          Transferable transferable = ClipboardMarshaller.unmarshal(inPackage);
+          Packet packet = (Packet) inputStream.readObject();
+          Transferable transferable = ClipboardMarshaller.unmarshal(packet);
           ClipboardHandler.push(transferable);
           inputStream.close();
           socket.close();

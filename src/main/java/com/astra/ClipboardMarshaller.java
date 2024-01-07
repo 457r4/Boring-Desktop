@@ -12,7 +12,7 @@ import com.astra.util.Colors;
  */
 public class ClipboardMarshaller {
 
-  public static Package marshal(Transferable transferable) {
+  public static Packet marshal(Transferable transferable) {
     DataFlavor flavor = null;
     byte[] rawData = {};
 
@@ -58,16 +58,16 @@ public class ClipboardMarshaller {
       e.printStackTrace();
     }
 
-    return new Package(flavor, rawData);
+    return new Packet(flavor, rawData);
   }
 
-  public static Transferable unmarshal(Package data) {
-    DataFlavor flavor = data.getFlavor();
+  public static Transferable unmarshal(Packet packet) {
+    DataFlavor flavor = packet.getFlavor();
     if (flavor.equals(DataFlavor.fragmentHtmlFlavor)) {
-      String htmlString = new String(data.getRawData());
+      String htmlString = new String(packet.getRawData());
       return new StringSelection(htmlString);
     } else if (flavor.equals(DataFlavor.stringFlavor)) {
-      String plainTextString = new String(data.getRawData());
+      String plainTextString = new String(packet.getRawData());
       return new StringSelection(plainTextString);
     }
     return null;

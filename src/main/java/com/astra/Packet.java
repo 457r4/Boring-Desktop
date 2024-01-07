@@ -4,14 +4,14 @@ import java.awt.datatransfer.DataFlavor;
 import java.io.Serializable;
 
 /**
- * Package
+ * Packet
  */
-public class Package implements Serializable {
+public class Packet implements Serializable {
 
   private DataFlavor flavor;
   private byte[] rawData;
 
-  public Package(DataFlavor dataFlavor, byte[] rawData) {
+  public Packet(DataFlavor dataFlavor, byte[] rawData) {
     this.flavor = dataFlavor;
     this.rawData = rawData;
   }
